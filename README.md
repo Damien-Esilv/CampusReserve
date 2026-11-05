@@ -3,7 +3,8 @@
 ## 1. Démarrage
 ```bash
 npm install
-npm start       # Lance le serveur sur http://localhost:3000
+npm run dev     # Mode développement (redémarrage auto lors des modifications)
+npm start       # Mode normal (http://localhost:3000)
 npm test        # Lance les tests
 ```
 
