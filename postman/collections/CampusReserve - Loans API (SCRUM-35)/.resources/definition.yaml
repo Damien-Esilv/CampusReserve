@@ -1,0 +1,4 @@
+$kind: collection
+description: Lab 6 CRUD tests for /api/loans. Run `npm run dev` in CampusReserve first.
+variables:
+  baseUrl: http://localhost:3000

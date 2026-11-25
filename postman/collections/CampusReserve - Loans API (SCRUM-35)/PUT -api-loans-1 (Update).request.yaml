@@ -1,0 +1,24 @@
+$kind: http-request
+name: PUT /api/loans/1 (Update)
+url: "{{baseUrl}}/api/loans/1"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "returned",
+      "condition": "intact"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });
+      pm.test("Status updated to returned", function () {
+        pm.expect(pm.response.json().status).to.eql("returned");
+      });
+    language: text/javascript
+order: 5000

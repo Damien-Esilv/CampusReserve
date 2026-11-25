@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: 25181545-1dcb-47c4-80e9-8ef77dc50ac5
+
+cloudResources:
+  collections:
+    ../postman/collections/CampusReserve - Loans API (SCRUM-35): 84b78ba3-3b9a-4a9b-a7a5-90005099966f
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

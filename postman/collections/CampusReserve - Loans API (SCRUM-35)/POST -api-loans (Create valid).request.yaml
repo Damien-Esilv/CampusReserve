@@ -1,0 +1,27 @@
+$kind: http-request
+name: POST /api/loans (Create valid)
+url: "{{baseUrl}}/api/loans"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "reservationId": 1,
+      "managerId": 2,
+      "pickupTime": "2026-11-25T19:00:00Z"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 201", function () {
+        pm.response.to.have.status(201);
+      });
+      pm.test("Created loan has id and checked_out status", function () {
+        const json = pm.response.json();
+        pm.expect(json).to.have.property("id");
+        pm.expect(json.status).to.eql("checked_out");
+      });
+    language: text/javascript
+order: 3000

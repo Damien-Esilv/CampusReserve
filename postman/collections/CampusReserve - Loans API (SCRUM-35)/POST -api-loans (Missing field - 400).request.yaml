@@ -1,0 +1,23 @@
+$kind: http-request
+name: POST /api/loans (Missing field - 400)
+url: "{{baseUrl}}/api/loans"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "managerId": 2
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 400", function () {
+        pm.response.to.have.status(400);
+      });
+      pm.test("Response contains error message", function () {
+        pm.expect(pm.response.json()).to.have.property("error");
+      });
+    language: text/javascript
+order: 4000
